@@ -68,8 +68,8 @@ function checkIsUserLogged (context) {
 
 function tryGetFavsFromUserLogged (context) {
   try {
-    const {email} = checkIsUserLogged(context)
-    const user = userModel.find({email})
+    const { email } = checkIsUserLogged(context)
+    const user = userModel.find({ email })
     return user.favs
   } catch(e) {
     return []
