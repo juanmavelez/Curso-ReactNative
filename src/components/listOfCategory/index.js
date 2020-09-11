@@ -1,30 +1,44 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Category } from '../category'
 import { List, Item } from './styles'
 
-export const ListOfCategory = () => {
+function useCategoriesData () {
   const [categories, setCategories] = useState([])
-  const [showFixed, setShowFixd] = useState(false)
+  const [loading, setLoading] = useState(false)
 
-  useEffect(function () { // se ejecuta cada vez que se renderiza el componente
+  useEffect(function () {
+    setLoading(true)
     window.fetch('https://petgram-juanma-api-3wn26sb41.vercel.app/categories')
       .then(res => res.json())
       .then(response => {
         setCategories(response)
+        setLoading(false)
       })
   }, [])
 
+  return { categories, loading }
+}
+
+export const ListOfCategory = () => {
+  const { categories, loading } = useCategoriesData()
+  const [showFixed, setShowFixed] = useState(false)
+
   useEffect(function () { // se ejecuta cada vez que se renderiza el componente
     const onScroll = e => {
-      const newShowFixed = window.scrollY < 200
-      showFixed != newShowFixed && setShowFixed(newShowFixed)
+      const newShowFixed = window.scrollY > 200
+      showFixed !== newShowFixed && setShowFixed(newShowFixed)
     }
-  }, [])
+    document.addEventListener('scroll', onScroll)
+
+    return () => document.removeEventListener('scroll', onScroll)
+  }, [showFixed])
 
   const renderList = (fixed) => (
-    <List className={fixed ? 'fixed' : ''}>
+    <List fixed={fixed}>
       {
-        categories.map(category => <Item key={category.id}><Category {...category} /></Item>)
+        loading
+          ? <Item key='loading'><Category /></Item>
+          : categories.map(category => <Item key={category.id}> <Category {...category} /> </Item>)
       }
     </List>
   )
@@ -32,7 +46,7 @@ export const ListOfCategory = () => {
   return (
     <>
       {renderList()}
-      {renderList(true)}
+      {showFixed && renderList(true)}
     </>
 
   )

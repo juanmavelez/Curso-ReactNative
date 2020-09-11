@@ -1,7 +1,6 @@
 {
   "name": "curso-platzi-react-avanzado",
   "version": "1.0.0",
-  "description": "¡Sígueme en Youtube! https://www.youtube.com/midudev",
   "main": "index.js",
   "scripts": {
     "now-build": "npm run build",
@@ -12,16 +11,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/midudev/curso-platzi-react-avanzado.git"
+    "url": "git+https://github.com/juanmavelez/Curso-ReactNative"
   },
   "keywords": [],
   "author": "jm",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/midudev/curso-platzi-react-avanzado/issues"
+    "url": "https://github.com/juanmavelez/Curso-ReactNative/issues"
   },
   "homepage": "https://github.com/midudev/curso-platzi-react-avanzado#readme",
   "dependencies": {
+    "intersection-observer": "^0.11.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.11.0",
