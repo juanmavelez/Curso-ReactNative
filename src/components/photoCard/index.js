@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React from 'react'
 import { Article, ImgWrapper, Img, Button } from './styles'
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md'

@@ -1,4 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { App } from './App'
-ReactDOM.render(<App />, document.getElementById('app'))
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from 'react-apollo'
+
+const client = new ApolloClient({
+  uri: 'https://petgram-juanma-api.juanmavelez.vercel.app/graphql'
+})
+
+ReactDOM.render(<ApolloProvider client={client}><App /></ApolloProvider>, document.getElementById('app'))
