@@ -2,14 +2,14 @@ import React from 'react'
 
 import { ListOfCategory } from './components/listOfCategory'
 import { GlobalStyle } from './styles/GlobalStyles'
-import { ListOfPhotoCard } from './container/listOfPhotoCards'
+import { ListOfPhotoCardsWithQuery } from './container/listOfPhotoCardsWithQuery'
 import { Logo } from './components/logo'
 import { PhotoCardWithQuery } from './container/photoCardWithQuery'
 
 export const App = () => {
   const urlParams = new window.URLSearchParams(window.location.search)
   const detailId = urlParams.get('detail')
-
+  console.log(detailId)
   return (
     <div>
       <GlobalStyle />
@@ -19,7 +19,7 @@ export const App = () => {
           ? <PhotoCardWithQuery id={detailId} />
           : <>
             <ListOfCategory />
-            <ListOfPhotoCard categoryId={1} />
+            <ListOfPhotoCardsWithQuery id={1} />
           </>
       }
 
