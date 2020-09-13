@@ -4,7 +4,7 @@ import { ListOfPhotoCardComponent } from '../components/listOfPhotoCard'
 import { gql } from 'apollo-boost'
 import { Query } from 'react-apollo'
 
-const query = gql`
+const GET_PHOTOS = gql`
   query getPhotos($categoryId: ID){
   photos(categoryId: $categoryId){
     id
@@ -17,13 +17,17 @@ const query = gql`
 }
 `
 
-export const ListOfPhotoCardsWithQuery = ({ categoryid }) => (
-  <Query query={query} variables={{ categoryid }}>
+const renderProp = ({ loading, error, data }) => {
+  if (loading) return <p>Loading</p>
+  if (error) return <p>Error!</p>
+  console.log(data)
+  return <ListOfPhotoCardComponent data={data} />
+}
+
+export const ListOfPhotoCardsWithQuery = ({ categoryId }) => (
+  <Query query={GET_PHOTOS} variables={{ categoryId }}>
     {
-      ({ loading, error, data }) => {
-        if (loading) return null
-        return <ListOfPhotoCardComponent data={data} />
-      }
+      renderProp
     }
   </Query>
 )
