@@ -1,17 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { App } from './App'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
-import { Context } from './context'
+
+import Context from './context'
+
+import { App } from './App'
+
 const client = new ApolloClient({
   uri: 'https://petgram-juanma-api.juanmavelez.vercel.app/graphql'
 })
 
 ReactDOM.render(
-  <Context.Provider value={{ isAuth: false }}>
+  <Context.Provider>
     <ApolloProvider client={client}>
       <App />
     </ApolloProvider>
-  </Context.Provider>
-  , document.getElementById('app'))
+  </Context.Provider>,
+  document.getElementById('app')
+)

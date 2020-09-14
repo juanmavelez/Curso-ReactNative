@@ -2,11 +2,11 @@ import React from 'react'
 import { ListOfCategory } from '../components/listOfCategory'
 import { ListOfPhotoCardsWithQuery } from '../container/listOfPhotoCardsWithQuery'
 
-export const Home = ({ id }) => {
+export const Home = ({ categoryId }) => {
   return (
     <>
       <ListOfCategory />
-      <ListOfPhotoCardsWithQuery categoryId={id} />
+      <ListOfPhotoCardsWithQuery categoryId={categoryId} />
     </>
   )
 }

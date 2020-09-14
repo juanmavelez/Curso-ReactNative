@@ -10,35 +10,34 @@ import { NotRegisterUser } from './pages/notRegisterUser'
 
 import { NavBar } from './components/navBar'
 import { Logo } from './components/logo'
-import { Context } from './context'
+import Context from './context'
 
 export const App = () => {
-  const urlParams = new window.URLSearchParams(window.location.search)
-  const detailId = urlParams.get('detail')
-  console.log(detailId)
   return (
     <div>
       <GlobalStyle />
       <Logo />
       <Router>
         <Home path='/' />
-        <Home path='/pet/:id' />
+        <Home path='/pet/:categoryId' />
         <Detail path='/detail/:detailId' />
       </Router>
+
       <Context.Consumer>
         {
           ({ isAuth }) =>
             isAuth
-              ? <Router>
+              ? (<Router>
                 <Favs path='/favs' />
                 <User path='/user' />
-              </Router>
-              : <Router>
+              </Router>)
+              : (<Router>
                 <NotRegisterUser path='/favs' />
                 <NotRegisterUser path='/user' />
-              </Router>
+              </Router>)
         }
       </Context.Consumer>
+
       <NavBar />
     </div>
   )
