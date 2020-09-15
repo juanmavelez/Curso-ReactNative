@@ -16,8 +16,8 @@ export const NotRegisterUser = () => {
               const variables = { input }
               register({ variables })
                 .then(({ data }) => {
-                  const { singup } = data
-                  activateAuth(singup)
+                  const { signup } = data
+                  activateAuth(signup)
                 })
             }
             const errorMsg = error && 'El usuario ya existe o hay algún problema.'
