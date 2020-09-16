@@ -1,13 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react'
 import { Context } from '../context'
 import { UserForm } from '../components/userForm'
 import { RegisterMutation } from '../container/registerMutation'
 import { LoginMutation } from '../container/loginMutation'
+import { DogIcon, DogIconContent } from '../styles/icons'
 
 export const NotRegisterUser = () => {
   const { activateAuth } = useContext(Context)
   return (
     <>
+      <DogIconContent>
+        <DogIcon className='fas fa-dog' />
+      </DogIconContent>
+
       <RegisterMutation>
         {
           (register, { data, loading, error }) => {
@@ -40,7 +45,7 @@ export const NotRegisterUser = () => {
             }
             const errorMsg = error && 'La contraseña no es correcta, o el usuario no existe.'
 
-            return <UserForm disabled={loading} error={errorMsg} rtitle='Iniciar' Sesion onSubmit={onSubmit} />
+            return <UserForm disabled={loading} error={errorMsg} title='Iniciar' Sesion onSubmit={onSubmit} />
           }
         }
       </LoginMutation>

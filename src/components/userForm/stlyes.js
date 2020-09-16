@@ -1,16 +1,17 @@
 import styled from 'styled-components'
 
 export const Form = styled.form`
-  padding: 16px 0;
+  padding: 1.6rem 0;
 `
 
 export const Input = styled.input`
   border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-bottom: 8px;
-  padding: 8px 4px;
+  border-radius: .3rem;
+  margin-bottom: .8rem;
+  padding: .8rem .4rem;
   display: block;
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   &[disabled]{
     opacity: .3;
   }
@@ -18,9 +19,9 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   background: rgb(250, 145, 10);
-  border-radius: 3px;
+  border-radius: .3rem;
   color: #fff;
-  height: 32px;
+  height: 3.2rem;
   display: block;
   width: 100%;
   text-align: center;
@@ -29,12 +30,12 @@ export const Button = styled.button`
   }
 `
 export const Title = styled.h2`
-  font-size:16px;
-  font-weight: 500px;
+  font-size:1.6rem;
+  font-weight: 50rem;
   padding: 8px 0;
 `
 
 export const Error = styled.span`
-  font-size: 14px;
+  font-size: 1.4rem;
   color:red;
 `

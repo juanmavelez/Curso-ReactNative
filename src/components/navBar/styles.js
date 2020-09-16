@@ -8,11 +8,11 @@ export const Nav = styled.nav`
   border-top: 1px solid #e0e0e0;
   bottom: 0;
   display: flex;
-  height: 50px;
+  height: 5rem;
   justify-content: space-around;
   left: 0;
   margin: 0 auto;
-  max-width: 500px;
+  max-width: 50rem;
   position: fixed;
   right: 0;
   width: 100%;
@@ -36,8 +36,8 @@ export const Link = styled(LinkRouter)`
       content: '•';
       position: absolute;
       bottom: 0;
-      font-size: 34px;
-      line-height: 20px;
+      font-size: 3.4rem;
+      line-height: 2rem;
 
     }
   }
