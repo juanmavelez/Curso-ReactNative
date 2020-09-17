@@ -5,8 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Petgram</title>
     <script src="https://kit.fontawesome.com/6f28a1154d.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" href="/src/assets/icon.png">
 </head>
 <body>
     <div id="app"></div>
+    <noscript>
+        <h3>Esta app necesita Javascript para funcionar</h3>
+    </noscript>
+    <script>
+        if ('serviceWoker' in navigator){
+            window.addEventListener('load', function(){
+                navigator.serviceWorker.register('/service-worker.js')
+                .then(register => console.log('SW registrado'))
+                .catch(registrationError => {
+                    console.log('SW error', registrationError)
+                })
+            })
+        }
+    </script>
 </body>
 </html>
