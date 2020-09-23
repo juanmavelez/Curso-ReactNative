@@ -1,0 +1,7 @@
+{
+  "baseUrl": "https://petgram.juanmavelez.vercel.app",
+  "chromeWebSecurity": false,
+  "viewportWidth": 500,
+  "viewportHeight": 800
+
+}

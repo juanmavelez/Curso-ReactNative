@@ -20,7 +20,8 @@ module.exports = {
       theme_color: '#b1a',
       icons: [{
         src: path.resolve('src/assets/icon.png'),
-        sizes: [96, 128, 192, 256, 384, 512]
+        sizes: [96, 128, 192, 256, 384, 512],
+        purpose: 'any maskable'
       }]
     }),
     new WorkboxWebpackPlugin.GenerateSW({
@@ -33,7 +34,7 @@ module.exports = {
           }
         },
         {
-          urlPattern: new RegExp('https://petgram-juanma-api.juanmavelez.vercel.app/graphql'),
+          urlPattern: new RegExp('https://petgram.juanmavelez.vercel.app'),
           handler: 'NetworkFirst',
           options: {
             cacheName: 'api'
