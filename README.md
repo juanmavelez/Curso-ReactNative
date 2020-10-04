@@ -1,5 +1,7 @@
-# curso-platzi-react-avanzado ⚛️
+# PETGRAM with React.js
 
-¡Sígueme en Youtube! https://www.youtube.com/midudev
+Petgram is a Intagram-like SPA created with React.js,
 
-Repositorio con el código del [Curso Avanzado de React de Platzi](https://platzi.com/cursos/react-avanzado/)
+Here I have used insted of React Router, @reach/router.
+
+To style the comoponents i have used https://styled-components.com/ to use css into js code.
